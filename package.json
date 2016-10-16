@@ -6,7 +6,7 @@
     "s3": "aws s3 cp handler.zip s3://lambda-code-jf2/handler.zip",
     "lambda": "aws lambda update-function-code --publish --function-name twitter-api --s3-bucket lambda-code-jf2 --s3-key handler.zip",
     "deploy": "npm run zip && npm run s3 && npm run lambda",
-    "test": "jest"
+    "test": "jest && codecov"
   },
   "dependencies": {
     "firebase": "^3.4.1",
@@ -14,6 +14,11 @@
     "twit": "^2.2.5"
   },
   "devDependencies": {
+    "codecov": "^1.0.1",
     "jest": "^16.0.1"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
